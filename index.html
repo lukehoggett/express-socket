@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Express Socket</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script>
+    
+      $(() => {
+        console.log('ready');
+        let socket = io.connect('localhost:22599');
+        socket.on('message', (data) => {
+          console.log('got message data', data);
+        });
+        
+        window.setTimeout(() => {
+          console.log('requesting update');
+          $.get('update');
+        }, 3000);
+      });
+      
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
